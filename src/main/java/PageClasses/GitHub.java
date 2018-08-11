@@ -11,26 +11,24 @@ import frameworkClasses.Hooks;
 import utilClasses.GenericUtility;
 
 
-public class PageOne extends GenericUtility {
+public class GitHub extends Hooks {
 	
 	public WebDriver driver;
 
-	@FindBy(css="article h3 a")
-	List<WebElement> headlines;
+	@FindBy(xpath="//h1[text()='Built for developers']/following-sibling::p")
+	WebElement gitmesages;
 	
-	public PageOne(WebDriver driver) {
-		driver = super.driver;
+	public GitHub() {
+		this.driver = super.driver;
 		PageFactory.initElements(driver, this);
 	}
 	
-	public void readGnews() {
-		System.out.println(driver.getTitle() +" :: " +driver.toString());
+	public void getTitle() {
+		System.out.println("Git Hub is launched : "+ driver.getCurrentUrl() + ", title: " +driver.getTitle());
 	}
-
-	public void readHeadLines(){
-		for (WebElement headln : headlines){
-			System.out.println("--> " + headln.getText());
-		}
+	
+	public void getGitMessage() {
+		System.out.println(gitmesages.getText());
 	}
 	
 	

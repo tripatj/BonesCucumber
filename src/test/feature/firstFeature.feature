@@ -2,5 +2,6 @@ Feature: Sample Feature
 
 @sample
 Scenario: Sample Scenario
-	Given I launch the application
+	Given User launch git
+	And User read the git welcome message
 
